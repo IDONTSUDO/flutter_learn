@@ -54,7 +54,7 @@ class _TodoPageState extends State<TodoPage> {
                           MaterialStatePropertyAll<Color>(Color(0xFFFFFFFF)),
                     ),
                     child: Stack(
-                      children: <Widget>[
+                      children: [
                         Align(
                           alignment: Alignment.centerRight,
                           child: Container(
@@ -69,11 +69,12 @@ class _TodoPageState extends State<TodoPage> {
                           ),
                         ),
                         Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "todo ${i + 1}",
-                              textAlign: TextAlign.left,
-                            ))
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "todo ${i + 1}",
+                            textAlign: TextAlign.left,
+                          ),
+                        )
                       ],
                     ),
                   ),
