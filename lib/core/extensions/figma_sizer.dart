@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:learn/core/theme/theme.dart';
 import 'package:sizer/sizer.dart';
 
-const _maxDesignScale = 1.0;
+const _maxDesignScale = 2.0;
 const _minDesignScale = 0.6;
 
 extension FigmaSizer on num {
