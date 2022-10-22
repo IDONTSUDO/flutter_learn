@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn/core/extensions/with_context.dart';
 
-import 'bloc/todobloc.dart';
+import 'bloc/todocubit.dart';
 
 typedef ST = List<bool>;
 
@@ -11,10 +11,12 @@ class TodoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) => TodoBloc(),
-      child: Scaffold(
-        body: _TodoPageState(),
+    return Scaffold(
+      body: BlocProvider(
+        create: (_) => TodoCubit(),
+        child: BlocBuilder<TodoCubit, List<bool>>(
+          builder: (context, list) => _TodoPageState(),
+        ),
       ),
     );
   }
@@ -23,23 +25,20 @@ class TodoPage extends StatelessWidget {
 class _TodoPageState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var data = context.select((TodoBloc bloc) => bloc.state.todos).toList();
+    final state = context.watch<TodoCubit>().state;
     return ListView(
       padding: EdgeInsets.all(15.fw),
       children: [
         const Text(
-          "Todo list streams",
+          "Todo list cubit",
           textAlign: TextAlign.center,
         ),
         SizedBox(height: 20.fh),
-        for (int i = 0; i < data.length; i++)
+        for (int i = 0; i < state.length; i++)
           Padding(
             padding: EdgeInsets.only(bottom: 15.fh),
             child: OutlinedButton(
-              onPressed: () {
-                data[i] = !data[i];
-                context.read<TodoBloc>().add(TodoBlocEvent(data));
-              },
+              onPressed: () => context.read<TodoCubit>().toggle(i),
               style: Theme.of(context).textButtonTheme.style?.copyWith(
                     padding: MaterialStatePropertyAll<EdgeInsets>(
                       EdgeInsets.symmetric(
@@ -60,7 +59,7 @@ class _TodoPageState extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: Theme.of(context).scaffoldBackgroundColor,
                         ),
-                        child: data[i]
+                        child: state[i]
                             ? const Icon(Icons.add,
                                 color: Color(0xFFDA4444), size: 40)
                             : const Icon(IconData(0), size: 40),
@@ -72,10 +71,7 @@ class _TodoPageState extends StatelessWidget {
             ),
           ),
         IconButton(
-          onPressed: () {
-            data.add(false);
-            context.read<TodoBloc>().add(TodoBlocEvent(data));
-          },
+          onPressed: () => context.read<TodoCubit>().add(),
           iconSize: 75,
           icon: const Icon(
             Icons.add,

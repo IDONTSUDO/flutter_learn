@@ -16,7 +16,6 @@ class AppBeginer {
     return runApp(dev());
   }
 
-
   Widget devicePreviewMode() {
     return DevicePreview(
       enabled: true,
