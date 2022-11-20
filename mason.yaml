@@ -1,0 +1,5 @@
+bricks:
+  base_feature:
+    path: base_feature
+  imports_template:
+    path: bricks/imports_template
