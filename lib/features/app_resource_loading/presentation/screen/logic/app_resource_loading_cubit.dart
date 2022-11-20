@@ -11,15 +11,18 @@ class AppResourceLoadingCubit extends Cubit<AppResourceLoadingState> {
     _init();
   }
 
-  void _init() async {
-    _userIsAuthorized.call().then((match) => match.match(
-        onSuccess: (isAuthorized) {
-          if (isAuthorized) {
-            _customNavigator.push(AuthorizationScreen.route());
-          } else {
-            _customNavigator.push(NavigationHubScreen.route());
-          }
-        },
-        onError: (error) {}));
+  Future<void> _init() async {
+    _userIsAuthorized.call().then(
+          (match) => match.match(
+            onSuccess: (isAuthorized) {
+              if (isAuthorized) {
+                _customNavigator.push(AuthorizationScreen.route());
+              } else {
+                _customNavigator.push(NavigationHubScreen.route());
+              }
+            },
+            onError: (error) {},
+          ),
+        );
   }
 }

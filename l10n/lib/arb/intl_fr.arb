@@ -1,4 +1,6 @@
 {
   "@@locale": "fr",
-  "@@last_modified": "2022-07-05T15:58:23+02:00"
+  "@@last_modified": "2022-07-05T15:58:23+02:00",
+  "progress": "progress",
+  "foobarbiz": "fooBarBiz"
 }

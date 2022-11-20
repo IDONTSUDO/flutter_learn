@@ -8,14 +8,14 @@ String userModelToMap(UserModel data) => json.encode(data.toMap());
 
 class UserModel {
   UserModel({
-    this.id = 0,
-    this.email = '',
-    this.password = '',
+    this.id,
+    this.email,
+    this.password,
   });
 
-  int id;
-  String email;
-  String password;
+  int? id;
+  String? email;
+  String? password;
 
   UserModel copyWith({
     int? id,
