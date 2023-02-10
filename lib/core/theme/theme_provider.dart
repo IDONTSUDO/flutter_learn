@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:sizer/sizer.dart';
 
 import 'src/app_colors.dart';
+import 'src/typography/typography.dart';
 import 'src/palettes/palettes.dart';
 
 class ThemeProvider extends ChangeNotifier {
