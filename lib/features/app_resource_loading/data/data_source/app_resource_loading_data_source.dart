@@ -12,10 +12,8 @@ class AppResourceLoadingDataSource implements IAppResourceLoadingDataSource {
 
   @override
   Future<bool> isAuthorized() async {
-    final token = await _sharedPreferencesService.getString(PREFS_KEY_TOKEN);
-    if (token is String) {
-      return true;
-    }
+    // final token = await _sharedPreferencesService.set(PREFS_KEY_TOKEN);
+
     return false;
   }
 }

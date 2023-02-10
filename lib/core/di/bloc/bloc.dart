@@ -6,4 +6,5 @@ void _setupBlocs() {
         locator(),
       ));
   locator.registerFactory(() => AuthorizationCubit());
+  locator.registerFactory(() => TesticCubit());
 }

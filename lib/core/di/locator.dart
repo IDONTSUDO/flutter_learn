@@ -6,6 +6,7 @@ import 'package:learn/core/environment/environment.dart';
 import 'package:learn/core/theme/theme_provider.dart';
 import 'package:learn/features/app_resource_loading/app_resource_loading.dart';
 import 'package:learn/features/authorization/authorization.dart';
+import 'package:learn/features/testic/testic.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'bloc/bloc.dart';
