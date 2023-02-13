@@ -1,0 +1,26 @@
+name: l10n
+description: Sensorium localizations
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ">=2.18.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  provider: 6.0.3
+
+  intl: ^0.17.0
+  intl_utils: 2.7.0
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
+  generate: true

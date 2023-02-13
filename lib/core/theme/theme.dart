@@ -1,4 +1,6 @@
-class ThemeProvider {
-  static const double figmaHeight = 844.0;
-  static const double figmaWidth = 390.0;
-}
+export 'src/app_color.dart';
+export 'src/app_colors.dart';
+export 'src/text_colors.dart';
+export 'src/font_color.dart';
+export 'src/palettes/palettes.dart';
+export 'theme_provider.dart';

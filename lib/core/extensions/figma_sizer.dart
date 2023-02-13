@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:learn/core/theme/theme.dart';
+import 'package:learn/core/theme/theme_provider.dart';
 import 'package:sizer/sizer.dart';
 
 const _maxDesignScale = 1.0;
